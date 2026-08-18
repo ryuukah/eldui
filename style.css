@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+
+/* =========================================
+   RESET
+========================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -11,6 +16,11 @@ body {
   min-height: 100%;
 }
 
+
+/* =========================================
+   BODY
+========================================= */
+
 body {
   min-height: 100vh;
 
@@ -18,17 +28,13 @@ body {
   justify-content: center;
   align-items: center;
 
-  background:
-    radial-gradient(
-      ellipse at 50% 20%,
-      rgba(255,255,255,.95) 0%,
-      rgba(255,255,255,.7) 35%,
-      rgba(230,230,230,.8) 100%
-    );
+  background: #191919;
 
   font-family: 'VT323', monospace;
 
   overflow: hidden;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -50,10 +56,13 @@ body {
 
   overflow: hidden;
 
+  transform: scale(0.82);
+  transform-origin: center center;
+
   box-shadow:
     0 2px 0 rgba(255,255,255,.9),
     0 5px 0 rgba(120,120,120,.45),
-    0 12px 30px rgba(0,0,0,.18);
+    0 12px 30px rgba(0,0,0,.5);
 }
 
 
@@ -88,9 +97,6 @@ body {
     inset 0 2px 0 rgba(255,255,255,.9),
     inset 0 -2px 0 rgba(255,255,255,.25);
 }
-
-
-/* glossy reflection across title bar */
 
 .title-bar::before {
   content: "";
@@ -130,7 +136,7 @@ body {
 
 
 /* =========================================
-   WINDOW CONTROLS
+   WINDOW BUTTONS
 ========================================= */
 
 .window-buttons {
@@ -193,8 +199,6 @@ body {
       rgba(255,255,255,.75),
       rgba(255,255,255,0)
     );
-
-  pointer-events: none;
 }
 
 .window-button.minimize {
@@ -279,7 +283,7 @@ body {
 
 
 /* =========================================
-   FRIEND REQUEST GEL BUTTON
+   FRIEND REQUEST BUTTON
 ========================================= */
 
 .request-title {
@@ -314,9 +318,6 @@ body {
     0 4px 8px rgba(180,90,125,.18);
 }
 
-
-/* bright curved plastic highlight */
-
 .request-title::before {
   content: "";
 
@@ -342,7 +343,7 @@ body {
 
 
 /* =========================================
-   SEARCH BOX
+   SEARCH
 ========================================= */
 
 .search-box {
@@ -412,7 +413,7 @@ body {
 
 
 /* =========================================
-   USER BADGE
+   DEQUU PROFILE BADGE
 ========================================= */
 
 .profile {
@@ -452,10 +453,46 @@ body {
   flex-shrink: 0;
 
   overflow: hidden;
+
+  cursor: grab;
+
+  touch-action: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  z-index: 10;
+
+  /*
+    These variables are changed by JavaScript
+    while the badge is being dragged.
+  */
+  transform:
+    translate(
+      var(--drag-x, 0px),
+      var(--drag-y, 0px)
+    );
+
+  transition:
+    transform .45s cubic-bezier(.22, 1.35, .36, 1);
 }
 
+.profile.dragging {
+  cursor: grabbing;
 
-/* glossy highlight */
+  transition: none;
+
+  z-index: 100;
+
+  filter: brightness(1.04);
+
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,.95),
+    inset 0 8px 10px rgba(255,255,255,.5),
+    inset 0 -6px 9px rgba(100,115,120,.18),
+    0 8px 18px rgba(60,60,60,.25);
+}
 
 .profile::before {
   content: "";
@@ -480,13 +517,11 @@ body {
   pointer-events: none;
 }
 
-
-/* little translucent rim */
-
 .profile::after {
   content: "";
 
   position: absolute;
+
   inset: 2px;
 
   border-radius: 42px;
@@ -499,7 +534,7 @@ body {
 
 
 /* =========================================
-   ACTUAL IMAGE AVATAR
+   AVATAR IMAGE
 ========================================= */
 
 .avatar {
@@ -529,6 +564,8 @@ body {
     0 1px 2px rgba(100,70,90,.25);
 
   padding: 2px;
+
+  pointer-events: none;
 }
 
 .avatar img {
@@ -540,6 +577,12 @@ body {
   object-fit: contain;
 
   border-radius: 50%;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
 }
 
 
@@ -615,14 +658,10 @@ body {
 
   transition:
     transform .12s ease,
-    filter .12s ease,
-    box-shadow .12s ease;
+    filter .12s ease;
 
   overflow: hidden;
 }
-
-
-/* BIG WHITE GEL HIGHLIGHT */
 
 .action::before {
   content: "";
@@ -646,9 +685,6 @@ body {
 
   pointer-events: none;
 }
-
-
-/* translucent lower bevel */
 
 .action::after {
   content: "";
@@ -674,9 +710,7 @@ body {
 }
 
 
-/* =========================================
-   ACCEPT
-========================================= */
+/* ACCEPT */
 
 .accept {
   border: 2px solid #8daf4e;
@@ -702,9 +736,7 @@ body {
 }
 
 
-/* =========================================
-   DECLINE
-========================================= */
+/* DECLINE */
 
 .decline {
   border: 2px solid #d779a4;
@@ -729,20 +761,10 @@ body {
     0 4px 8px rgba(180,80,125,.18);
 }
 
-
-/* =========================================
-   BUTTON INTERACTION
-========================================= */
-
 .action:hover {
   filter: brightness(1.06);
 
   transform: translateY(-1px);
-
-  box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.95),
-    inset 0 5px 8px rgba(255,255,255,.5),
-    0 4px 10px rgba(120,80,100,.22);
 }
 
 .action:active {
@@ -790,6 +812,8 @@ body {
     width: 94vw;
     height: auto;
     min-height: 620px;
+
+    transform: scale(0.78);
   }
 
   .header {
@@ -819,47 +843,15 @@ body {
 
   .buttons {
     gap: 15px;
+
     padding-left: 0;
     padding-right: 0;
   }
 
   .action {
     width: 50%;
+
     font-size: 25px;
   }
 
-}
-
-/* Make the entire interface smaller */
-.window {
-  transform: scale(0.82);
-  transform-origin: center center;
-}
-
-/* Dequu badge returns to its original position when touched */
-.profile {
-  cursor: pointer;
-  transition: transform 0.25s ease;
-}
-
-.profile:active {
-  transform: scale(0.96);
-}
-
-.profile.returning {
-  animation: returnToPlace 0.35s ease;
-}
-
-@keyframes returnToPlace {
-  0% {
-    transform: translateY(8px) scale(0.96);
-  }
-
-  60% {
-    transform: translateY(-3px) scale(1.02);
-  }
-
-  100% {
-    transform: translateY(0) scale(1);
-  }
 }
