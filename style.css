@@ -283,7 +283,7 @@ body {
 
 
 /* =========================================
-   FRIEND REQUEST BUTTON
+   FRIEND REQUEST
 ========================================= */
 
 .request-title {
@@ -409,6 +409,8 @@ body {
 
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
 }
 
 
@@ -454,44 +456,13 @@ body {
 
   overflow: hidden;
 
-  cursor: grab;
+  cursor: pointer;
 
-  touch-action: none;
+  touch-action: manipulation;
 
   user-select: none;
 
   -webkit-user-select: none;
-
-  z-index: 10;
-
-  /*
-    These variables are changed by JavaScript
-    while the badge is being dragged.
-  */
-  transform:
-    translate(
-      var(--drag-x, 0px),
-      var(--drag-y, 0px)
-    );
-
-  transition:
-    transform .45s cubic-bezier(.22, 1.35, .36, 1);
-}
-
-.profile.dragging {
-  cursor: grabbing;
-
-  transition: none;
-
-  z-index: 100;
-
-  filter: brightness(1.04);
-
-  box-shadow:
-    inset 0 3px 0 rgba(255,255,255,.95),
-    inset 0 8px 10px rgba(255,255,255,.5),
-    inset 0 -6px 9px rgba(100,115,120,.18),
-    0 8px 18px rgba(60,60,60,.25);
 }
 
 .profile::before {
@@ -534,7 +505,7 @@ body {
 
 
 /* =========================================
-   AVATAR IMAGE
+   AVATAR
 ========================================= */
 
 .avatar {
@@ -587,19 +558,23 @@ body {
 
 
 /* =========================================
-   MESSAGE
+   INFORMATION TEXT
 ========================================= */
 
 .message {
-  margin-top: 38px;
+  margin-top: 30px;
 
-  min-height: 145px;
+  min-height: 230px;
 
-  font-size: 31px;
+  max-width: 560px;
 
-  line-height: 1.2;
+  font-size: 27px;
+
+  line-height: 1.15;
 
   color: #080808;
+
+  overflow: hidden;
 
   transition:
     opacity .2s ease,
@@ -630,7 +605,7 @@ body {
 
 
 /* =========================================
-   ACTION BUTTONS
+   BUTTONS
 ========================================= */
 
 .buttons {
@@ -710,7 +685,9 @@ body {
 }
 
 
-/* ACCEPT */
+/* =========================================
+   ACCEPT
+========================================= */
 
 .accept {
   border: 2px solid #8daf4e;
@@ -736,7 +713,9 @@ body {
 }
 
 
-/* DECLINE */
+/* =========================================
+   DECLINE
+========================================= */
 
 .decline {
   border: 2px solid #d779a4;
@@ -838,7 +817,8 @@ body {
   }
 
   .message {
-    font-size: 27px;
+    font-size: 24px;
+    min-height: 250px;
   }
 
   .buttons {
