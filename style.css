@@ -40,11 +40,12 @@ body {
 
 /* =========================================
    MAIN WINDOW
+   Small Notion-friendly size
 ========================================= */
 
 .window {
-  width: min(650px, 90vw);
-  height: min(700px, 90vh);
+  width: 480px;
+  height: 520px;
 
   position: relative;
 
@@ -52,17 +53,14 @@ body {
 
   border: 2px solid #777;
 
-  border-radius: 13px;
+  border-radius: 11px;
 
   overflow: hidden;
-
-  transform: scale(0.82);
-  transform-origin: center center;
 
   box-shadow:
     0 2px 0 rgba(255,255,255,.9),
     0 5px 0 rgba(120,120,120,.45),
-    0 12px 30px rgba(0,0,0,.5);
+    0 12px 25px rgba(0,0,0,.5);
 }
 
 
@@ -71,7 +69,7 @@ body {
 ========================================= */
 
 .title-bar {
-  height: 56px;
+  height: 42px;
 
   position: relative;
 
@@ -79,7 +77,7 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  padding-left: 14px;
+  padding-left: 11px;
 
   background:
     linear-gradient(
@@ -104,10 +102,10 @@ body {
   position: absolute;
 
   left: 7px;
-  right: 115px;
-  top: 4px;
+  right: 100px;
+  top: 3px;
 
-  height: 20px;
+  height: 15px;
 
   border-radius: 12px;
 
@@ -126,7 +124,7 @@ body {
   z-index: 2;
 
   font-family: Arial, sans-serif;
-  font-size: 31px;
+  font-size: 25px;
 
   color: #222;
 
@@ -150,8 +148,8 @@ body {
 }
 
 .window-button {
-  width: 58px;
-  height: 42px;
+  width: 43px;
+  height: 32px;
 
   border: 2px solid #777;
   border-top: none;
@@ -159,7 +157,7 @@ body {
   position: relative;
 
   font-family: Arial, sans-serif;
-  font-size: 25px;
+  font-size: 19px;
 
   color: #555;
 
@@ -186,11 +184,11 @@ body {
 
   position: absolute;
 
-  left: 7px;
-  right: 7px;
+  left: 5px;
+  right: 5px;
   top: 2px;
 
-  height: 10px;
+  height: 8px;
 
   border-radius: 8px;
 
@@ -199,18 +197,20 @@ body {
       rgba(255,255,255,.75),
       rgba(255,255,255,0)
     );
+
+  pointer-events: none;
 }
 
 .window-button.minimize {
-  border-radius: 0 0 0 9px;
+  border-radius: 0 0 0 7px;
 }
 
 .window-button.close {
-  width: 66px;
+  width: 49px;
 
   color: white;
 
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
 
   background:
@@ -224,7 +224,7 @@ body {
 
   border-color: #8f504b;
 
-  border-radius: 0 0 8px 0;
+  border-radius: 0 0 7px 0;
 
   text-shadow:
     0 1px 1px rgba(90,20,20,.7);
@@ -240,7 +240,7 @@ body {
 ========================================= */
 
 .window-content {
-  height: calc(100% - 56px);
+  height: calc(100% - 42px);
 
   border-left: 2px solid #777;
   border-right: 2px solid #777;
@@ -258,7 +258,7 @@ body {
 ========================================= */
 
 .header {
-  height: 128px;
+  height: 88px;
 
   flex-shrink: 0;
 
@@ -266,7 +266,7 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 28px 0 40px;
+  padding: 0 20px 0 25px;
 
   background:
     linear-gradient(
@@ -289,14 +289,14 @@ body {
 .request-title {
   position: relative;
 
-  padding: 12px 18px 9px;
+  padding: 9px 14px 7px;
 
-  font-size: 34px;
+  font-size: 27px;
   line-height: 1;
 
   white-space: nowrap;
 
-  border-radius: 22px;
+  border-radius: 18px;
 
   border: 2px solid #ed9bb9;
 
@@ -323,11 +323,11 @@ body {
 
   position: absolute;
 
-  left: 9px;
-  right: 9px;
-  top: 4px;
+  left: 8px;
+  right: 8px;
+  top: 3px;
 
-  height: 14px;
+  height: 11px;
 
   border-radius: 15px;
 
@@ -339,6 +339,8 @@ body {
     );
 
   opacity: .9;
+
+  pointer-events: none;
 }
 
 
@@ -347,8 +349,8 @@ body {
 ========================================= */
 
 .search-box {
-  width: 230px;
-  height: 42px;
+  width: 150px;
+  height: 32px;
 
   padding: 5px;
 
@@ -379,9 +381,9 @@ body {
   color: #efa9c4;
 
   font-family: Arial, sans-serif;
-  font-size: 35px;
+  font-size: 27px;
 
-  line-height: 26px;
+  line-height: 20px;
 
   padding-left: 7px;
 
@@ -405,7 +407,7 @@ body {
       #f0f0f0 100%
     );
 
-  padding: 25px 40px;
+  padding: 18px 25px;
 
   display: flex;
   flex-direction: column;
@@ -419,15 +421,15 @@ body {
 ========================================= */
 
 .profile {
-  width: 295px;
-  height: 86px;
+  width: 235px;
+  height: 65px;
 
   position: relative;
 
   display: flex;
   align-items: center;
 
-  padding: 8px;
+  padding: 6px;
 
   border: 2px solid #899397;
 
@@ -450,7 +452,7 @@ body {
     0 2px 0 rgba(120,130,135,.55),
     0 4px 8px rgba(100,110,115,.12);
 
-  font-size: 31px;
+  font-size: 25px;
 
   flex-shrink: 0;
 
@@ -470,11 +472,11 @@ body {
 
   position: absolute;
 
-  left: 10px;
-  right: 10px;
-  top: 5px;
+  left: 8px;
+  right: 8px;
+  top: 4px;
 
-  height: 25px;
+  height: 19px;
 
   border-radius: 30px;
 
@@ -509,10 +511,10 @@ body {
 ========================================= */
 
 .avatar {
-  width: 67px;
-  height: 67px;
+  width: 51px;
+  height: 51px;
 
-  margin-right: 14px;
+  margin-right: 10px;
 
   flex-shrink: 0;
 
@@ -562,15 +564,15 @@ body {
 ========================================= */
 
 .message {
-  margin-top: 30px;
+  margin-top: 24px;
 
-  min-height: 230px;
+  min-height: 190px;
 
-  max-width: 560px;
+  max-width: 425px;
 
-  font-size: 27px;
+  font-size: 22px;
 
-  line-height: 1.15;
+  line-height: 1.12;
 
   color: #080808;
 
@@ -582,7 +584,7 @@ body {
 }
 
 .message p {
-  margin: 0 0 12px;
+  margin: 0 0 9px;
 }
 
 .message.changed {
@@ -615,19 +617,21 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 8px 30px;
+  padding: 0 4px 20px;
+
+  gap: 15px;
 }
 
 .action {
-  width: 245px;
-  height: 58px;
+  width: 50%;
+  height: 47px;
 
   position: relative;
 
   border-radius: 30px;
 
   font-family: 'VT323', monospace;
-  font-size: 30px;
+  font-size: 25px;
 
   cursor: pointer;
 
@@ -643,11 +647,11 @@ body {
 
   position: absolute;
 
-  left: 8px;
-  right: 8px;
-  top: 4px;
+  left: 7px;
+  right: 7px;
+  top: 3px;
 
-  height: 21px;
+  height: 17px;
 
   border-radius: 25px;
 
@@ -666,11 +670,11 @@ body {
 
   position: absolute;
 
-  left: 7px;
-  right: 7px;
-  bottom: 5px;
+  left: 6px;
+  right: 6px;
+  bottom: 4px;
 
-  height: 12px;
+  height: 10px;
 
   border-radius: 20px;
 
@@ -686,7 +690,7 @@ body {
 
 
 /* =========================================
-   ACCEPT
+   ACCEPT BUTTON
 ========================================= */
 
 .accept {
@@ -714,7 +718,7 @@ body {
 
 
 /* =========================================
-   DECLINE
+   DECLINE BUTTON
 ========================================= */
 
 .decline {
@@ -758,7 +762,7 @@ body {
 ========================================= */
 
 .bottom-bar {
-  height: 64px;
+  height: 45px;
 
   flex-shrink: 0;
 
@@ -781,7 +785,7 @@ body {
    MOBILE
 ========================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 500px) {
 
   body {
     overflow: auto;
@@ -790,48 +794,40 @@ body {
   .window {
     width: 94vw;
     height: auto;
-    min-height: 620px;
-
-    transform: scale(0.78);
+    min-height: 520px;
   }
 
   .header {
-    padding: 0 15px;
+    padding: 0 14px 0 18px;
   }
 
   .request-title {
-    font-size: 27px;
+    font-size: 24px;
   }
 
   .search-box {
-    width: 120px;
+    width: 110px;
   }
 
   .main-content {
-    padding: 25px 20px;
+    padding: 18px;
   }
 
   .profile {
-    width: 270px;
-    font-size: 28px;
+    width: 225px;
   }
 
   .message {
-    font-size: 24px;
-    min-height: 250px;
+    font-size: 21px;
+    min-height: 200px;
   }
 
   .buttons {
-    gap: 15px;
-
-    padding-left: 0;
-    padding-right: 0;
+    gap: 10px;
   }
 
   .action {
-    width: 50%;
-
-    font-size: 25px;
+    font-size: 23px;
   }
 
 }
