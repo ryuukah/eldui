@@ -22,14 +22,25 @@ function changeMessage(content) {
 
 
 /* =========================================
-   ORIGINAL MESSAGE
+   ORIGINAL PROFILE INFORMATION
 ========================================= */
 
 function originalMessage() {
 
   changeMessage(`
-    <p>( ♥ ) &nbsp; graphic designer</p>
-    <p>(99%) interests match</p>
+    <p>
+      Martin Edwards Park, born in 03/20/08 in Argentina,
+      Capricorn, Argentine & Korean—lowkey Korean—
+      currently living in Boedo, Buenos Aires.
+    </p>
+
+    <p>
+      Non-religious. Student in Perfect 10 Academy.
+    </p>
+
+    <p>
+      interests match 99%
+    </p>
   `);
 
 }
@@ -67,12 +78,6 @@ declineBtn.addEventListener("click", () => {
    TOUCH / CLICK DEQUU BADGE
 ========================================= */
 
-/*
-   Touching or clicking the dequu badge
-   returns the middle information to
-   its original state.
-*/
-
 profile.addEventListener("click", () => {
 
   originalMessage();
@@ -81,8 +86,7 @@ profile.addEventListener("click", () => {
 
 
 /*
-   Make sure it also works immediately
-   on phones/tablets when touching it.
+   Make it work properly on touchscreens.
 */
 
 profile.addEventListener("touchend", (event) => {
